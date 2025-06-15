@@ -1,0 +1,8 @@
+Try the Full-Width version of the commonly used symbols for XSS/WAF/SQL filter bypass.
+
+🔹＜ - %EF%BC%9C (\uff1c)
+🔹＞ - %EF%BC%9E  (\uff1e)
+🔹＼ - %EF%BC%BC (\uff3c)
+🔹／ - %EF%BC%8F (\uff0f)
+🔹＇ - %EF%BC%87 (\uff07)
+🔹＂ - %EF%BC%82 (\uff02)
